@@ -18,4 +18,5 @@ deploy:
   file: "http-info"
   skip_cleanup: true
   on:
+    tags: true
     condition: $TRAVIS_GO_VERSION =~ ^1\.8\.[0-9]+$

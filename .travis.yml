@@ -1,11 +1,20 @@
 language: go
 
 go:
-  - 1.x
   - 1.6
   - 1.7.x
+  - 1.8.x
   - master
 
 install:
   - curl https://glide.sh/get | sh
   - glide up
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "IHgq4ZWQCfvt6fZvVCbh51S7j1eGmKUU1Cvm6E42gETsh85w2YvH7/Rd9uYxevJz7mhd4KZO/tTgN/zEnBZXk0zDKp+RusA6QTSXxT6xH5qvdMZkkip08MGoUW/ZjoK5vozrxDJgIoGks80OilpcgreeK1D14KEl2w2OBXCAiuxkP5FYgf2tccDpx69qJMS1S5HyTOEDlawc/3PReBnU0awJ///ARidTPDIRQslNQi4Q3fEPXQT/x7SSNW4UWM99r9XNJ1WhY6VPjV752ELkx7PImBs7MjDXPwlOnVRGPe01Iy3jIRwYVP6nnehWdGPG0imQdSCsOkFIrJEK9dVcO38Ikkn5hLG+FfQZeQsOzv5oMW8pRBO5aqIj370WUqLOyIq4iSDsseoZhr5Z1qze4lOJx+QUFYQTk7ZfvsenYh6XRozJbXDVxgQuuvu1F7M92GmFbGdn2IG7fuM80kAHhPI3SdKeLWDDAJrwqGiXLd2l0WQZjPOK5QAN9GZq0wmRvuOqsoMmIHG0qC7xlbfK+uUwwBgYoUjr8efCmIa5HIch7x+oTiSe+zMVmKHz3Qo5UYAKcCW5FgBg+hmza3P7iB63TWTz/ndhCsIO7KPRcY/zrV0qFXN2X8lWNZaoDiF4giQE7tCyFaksPDPKHrpkv7fJuDyZOhHG/5UVnb4MwZM="
+  file: "http-info"
+  skip_cleanup: true
+  on:
+    condition: $TRAVIS_GO_VERSION =~ ^1\.8\.[0-9]+$
